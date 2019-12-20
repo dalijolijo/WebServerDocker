@@ -10,15 +10,15 @@ FROM ubuntu:16.04
 # ---------------------------------------------------------------------- #
 LABEL maintainer "thyrlian@gmail.com"
 
-# install essential tools
-RUN apt-get update -y && \
-    apt-get install -y wget
+###############################
+# CHANGE DOMAIN_NAME
+ENV DOMAIN_NAME localwebserver.de
+################################
 
 # install and configure the Apache Web Server
-ENV DOMAIN_NAME basgeekball.com
 ENV PUBLIC_DIR /var/www/$DOMAIN_NAME/public_html
 RUN apt-get update -y && \
-    apt-get install -y apache2 && \
+    apt-get install -y wget apache2 && \
     sed -i "s%\(^\s*DocumentRoot\s*\).*%\1$PUBLIC_DIR%g" /etc/apache2/sites-available/000-default.conf && \
     echo "\n<Directory /var/www/$DOMAIN_NAME>\n        Options Indexes FollowSymLinks\n</Directory>\n" >> /etc/apache2/apache2.conf && \
     a2enmod ssl && \
