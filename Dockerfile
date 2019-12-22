@@ -12,7 +12,7 @@ LABEL maintainer "thyrlian@gmail.com"
 
 ###############################
 # CHANGE DOMAIN_NAME
-ENV DOMAIN_NAME localwebserver.de
+ENV DOMAIN_NAME c909a383-8278-4017-968e-7cadd18d6496.pub.cloud.scaleway.com
 ################################
 
 # install and configure the Apache Web Server
